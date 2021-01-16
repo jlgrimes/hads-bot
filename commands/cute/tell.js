@@ -6,7 +6,7 @@ module.exports = class SetCommand extends Command {
         name: 'message',
         memberName: 'message',
         group: 'cute',
-        description: 'message',
+        description: 'A cute message for a cute girl <3 choose from cute, inspirational, or roast.',
         args: [
           {
             key: 'type',
