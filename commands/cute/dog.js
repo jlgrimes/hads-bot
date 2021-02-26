@@ -5,7 +5,7 @@ module.exports = class SetCommand extends Command {
   constructor(client) {
     super(client, {
         name: 'dog',
-        memberName: 'cate',
+        memberName: 'dog',
         group: 'cute',
         description: 'dog',
         args: [
