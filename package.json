@@ -22,8 +22,9 @@
   "homepage": "https://github.com/jlgrimes/hads-bot#readme",
   "dependencies": {
     "discord.js": "^12.5.1",
-    "discord.js-commando": "*",
+    "discord.js-commando": "^0.12.2",
     "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.1",
     "path": "^0.12.7"
   }
 }
