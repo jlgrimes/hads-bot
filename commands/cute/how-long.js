@@ -16,7 +16,7 @@ module.exports = class SetCommand extends Command {
 
   async run(message) {
     const todaysDate = moment();
-    const dateWeMeet = moment('2021-05-03')
+    const dateWeMeet = moment('2021-05-13')
     
     message.channel.send(`There are ${dateWeMeet.diff(todaysDate, 'days')} more days until you're in my arms again <3`);
   }
