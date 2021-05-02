@@ -18,6 +18,6 @@ module.exports = class SetCommand extends Command {
     const todaysDate = moment();
     const dateWeMeet = moment('2021-05-13T13:44:00-04:00')
     
-    message.channel.send(`There are ${todaysDate.to(dateWeMeet)} more days until you're in my arms again <3`);
+    message.channel.send(`You will be in my arms again ${todaysDate.to(dateWeMeet)} <3`);
   }
 };
