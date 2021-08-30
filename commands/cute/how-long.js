@@ -24,6 +24,6 @@ module.exports = class SetCommand extends Command {
     const todaysDate = moment();
     const dateWeMeet = moment.min(DAYS_WE_MEET.filter((meetDay) => moment(meetDay).isAfter(todaysDate)).map(d => moment(d)));
     
-    message.channel.send(`You will be in my arms again ${todaysDate.to(dateWeMeet)} <3`);
+    message.channel.send(`You will be in my arms again ${dateWeMeet.diff(todaysDate, 'days')} days <3`);
   }
 };
