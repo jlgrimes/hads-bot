@@ -13,6 +13,7 @@ client.registry
 	.registerDefaultTypes()
 	.registerGroups([
 		['cute', 'Cute commands'],
+		['magic', 'Magic commands'],
 	])
 	.registerDefaultGroups()
 	.registerDefaultCommands()
