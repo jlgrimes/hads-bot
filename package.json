@@ -22,10 +22,11 @@
   },
   "homepage": "https://github.com/jlgrimes/hads-bot#readme",
   "dependencies": {
+    "date-fns": "^2.25.0",
+    "date-fns-tz": "^1.1.6",
     "discord.js": "^12.5.1",
     "discord.js-commando": "^0.12.2",
     "dotenv": "^8.2.0",
-    "moment": "^2.29.1",
     "node-fetch": "^2.6.1",
     "path": "^0.12.7"
   }

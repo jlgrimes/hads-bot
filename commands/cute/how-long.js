@@ -1,12 +1,33 @@
 const { Command } = require('discord.js-commando');
-const fetch = require('node-fetch');
-const moment = require('moment');
+
+const differenceInHours = require('date-fns/differenceInHours');
+const isBefore = require('date-fns/isBefore');
+const min = require('date-fns/min');
+
+const TIME_ZONE_OFFSET = 6 * 60 * 60 * 1000;
 
 const DAYS_WE_MEET = [
-  '2021-09-24T13:44:00-04:00',
-  '2021-10-16T14:58:00-04:00',
-  '2021-12-25T13:44:00-04:00'
-];
+  '2021-9-24',
+  '2021-10-16'
+].map((date) => new Date(date));
+
+const generateHowLongMessage = () => {
+  const todaysDate = new Date(new Date() - TIME_ZONE_OFFSET);
+  const daysWeWillMeet = DAYS_WE_MEET.filter((meetDay) => isBefore(todaysDate, meetDay));
+
+  if (daysWeWillMeet === 0) {
+    return `I dunno when you'll be in my arms next, but I can't wait for the next time you are!!`;
+  }
+
+  const dateWeMeet = min(daysWeWillMeet);
+  const daysUntilWeMeet = Math.ceil(differenceInHours(dateWeMeet, todaysDate) / 24);
+
+  if (daysUntilWeMeet === 1) {
+    return `You will be in my arms tomorrow!! Yay!!!!`;
+  }
+
+  return `You will be in my arms again in ${daysUntilWeMeet} days <3`;
+}
 
 module.exports = class SetCommand extends Command {
   constructor(client) {
@@ -21,9 +42,6 @@ module.exports = class SetCommand extends Command {
   }
 
   async run(message) {
-    const todaysDate = moment();
-    const dateWeMeet = moment.min(DAYS_WE_MEET.filter((meetDay) => moment(meetDay).isAfter(todaysDate)).map(d => moment(d)));
-    
-    message.channel.send(`You will be in my arms again ${dateWeMeet.diff(todaysDate, 'days')} days <3`);
+    message.channel.send(generateHowLongMessage());
   }
 };
