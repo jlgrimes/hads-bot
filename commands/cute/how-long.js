@@ -8,7 +8,8 @@ const TIME_ZONE_OFFSET = 6 * 60 * 60 * 1000;
 
 const DAYS_WE_MEET = [
   '2021-9-24',
-  '2021-10-16'
+  '2021-10-16',
+  '2021-11-28'
 ].map((date) => new Date(date));
 
 const generateHowLongMessage = () => {
